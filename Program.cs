@@ -25,12 +25,12 @@ namespace TextEncoding
       */
 
       var fileBytes = File.ReadAllBytes("Unicode.1.html");
-      var shorterFileBytes = new byte[fileBytes.Length - 4];
+      var shorterFileBytes = new byte[fileBytes.Length - 2];
       Array.Copy(fileBytes, 2, shorterFileBytes, 0, shorterFileBytes.Length);
       File.WriteAllBytes("Unicode.2.html", shorterFileBytes);
 
       var finalText = File.ReadAllText("Unicode.2.html", Encoding.UTF8);
-      File.WriteAllText("Unicode.3.html", finalText);
+      File.WriteAllText("Unicode.3.html", finalText, Encoding.Unicode);
     }
   }
 }
